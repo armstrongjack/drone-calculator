@@ -1,0 +1,3208 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta name="description" content="Professional drone bid calculator for pilots and companies to generate standardized quotes. Set project parameters with easy-to-use sliders and get instant pricing estimates.">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="">
+
+      
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+
+      <title>Drone Bid Calculator | Industry Standard Pricing Tool for Drone Pilots</title>
+      <!-- SEO Description -->
+      <meta name="description" content="Professional drone bid calculator for pilots and companies to generate standardized quotes. Set project parameters with easy-to-use sliders and get instant pricing estimates.">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      <!-- Header Scripts -->
+      <script id="header-scripts">
+        // This script tag will be replaced with actual scripts.head content
+        if (window.scripts && window.scripts.head) {
+          document.getElementById('header-scripts').outerHTML = window.scripts.head;
+        }
+      </script>
+
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <!-- Font stylesheet -->
+
+      <style>
+        :root {
+          color-scheme: light;
+        }
+
+        color-scheme: light;
+      </style>
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+      // render the settings object
+      //console.log('settings', [object Object]);
+      document.addEventListener('DOMContentLoaded', function() {
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: {
+                  DEFAULT: '#2C3E50',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8', 
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  DEFAULT: '#3498DB',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3', 
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  DEFAULT: '',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3', 
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+              fontFamily: {
+                sans: ['Roboto, sans-serif', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                heading: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+                body: ['Open Sans, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+              },
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      });
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <meta name="robots" content="">
+      <meta name="google-site-verification" content="">
+      <meta name="baidu-verification" content="">
+      <meta name="yandex-verification" content="">
+      <meta name="bing-verification" content="">
+      <meta property="og:title" content="">
+      <meta property="og:description" content="">
+      <meta property="og:image" content="">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="Drone Bid Calculator Dashboard">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="">
+      <meta name="twitter:description" content="">
+      <meta name="twitter:image" content="">
+    
+      
+      <!-- Font Links -->
+     
+      <link rel="icon" type="image/x-icon" href="">
+
+      <style>
+        h1, h2, h3, h4, h5, h6 {
+          font-family: Roboto, sans-serif, Inter, system-ui, sans-serif;
+        }
+        body {
+          font-family: Open Sans, sans-serif, Inter, system-ui, sans-serif;
+        }
+      </style>
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative h-full">
+        <div id="RolloutPageContent"><element id="6a3d5a2e-b9c8-4709-b1c9-a4fbc2cd231f" data-section-id="6a3d5a2e-b9c8-4709-b1c9-a4fbc2cd231f">
+
+
+<div id="root" class="flex h-screen bg-gray-100">
+    <div x-data="{ isOpen: false }" class="flex">
+        <nav id="header" class="w-64 h-screen bg-neutral-800 text-white flex flex-col hidden lg:block">
+            <div class="p-4 border-b border-neutral-700">
+                <div class="text-xl font-bold text-white">Drone Bid Calculator</div>
+            </div>
+            <ul class="flex-grow p-2">
+                <li class="mb-1">
+                    <a href="#dashboard" onclick="showSection('dashboard')" class="flex items-center p-2 rounded-md hover:bg-neutral-700 transition-colors bg-neutral-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                        </svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="#project-parameters" onclick="showSection('project-parameters')" class="flex items-center p-2 rounded-md hover:bg-neutral-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                        </svg>
+                        Project Parameters
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="#equipment-selection" onclick="showSection('equipment-selection')" class="flex items-center p-2 rounded-md hover:bg-neutral-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
+                        </svg>
+                        Equipment Selection
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="#location-factors" onclick="showSection('location-factors')" class="flex items-center p-2 rounded-md hover:bg-neutral-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        Location Factors
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="#time-estimation" onclick="showSection('time-estimation')" class="flex items-center p-2 rounded-md hover:bg-neutral-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                        </svg>
+                        Time Estimation
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="#additional-services" onclick="showSection('additional-services')" class="flex items-center p-2 rounded-md hover:bg-neutral-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                        </svg>
+                        Additional Services
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="#quote-summary" onclick="showSection('quote-summary')" class="flex items-center p-2 rounded-md hover:bg-neutral-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                        </svg>
+                        Quote Summary
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="#saved-quotes" onclick="showSection('saved-quotes')" class="flex items-center p-2 rounded-md hover:bg-neutral-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                        </svg>
+                        Saved Quotes
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="#settings" onclick="showSection('settings')" class="flex items-center p-2 rounded-md hover:bg-neutral-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                        </svg>
+                        Settings
+                    </a>
+                </li>
+            </ul>
+            <div class="p-4 border-t border-neutral-700">
+                <div class="flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-neutral-600 flex items-center justify-center text-sm">
+                        DP
+                    </div>
+                    <div class="ml-2">
+                        <div class="text-sm font-medium">Drone Pilot</div>
+                        <div class="text-xs text-neutral-400">pilot@example.com</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <button type="button" class="lg:hidden p-2 ml-3 fixed top-3 left-2 z-50 bg-neutral-800 rounded-md text-neutral-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" @click="isOpen = !isOpen" aria-controls="mobile-menu" :aria-expanded="isOpen">
+            <span class="sr-only">Open main menu</span>
+            <svg x-show="!isOpen" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg x-show="isOpen" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <div id="mobile-menu" class="lg:hidden fixed inset-0 z-40 bg-neutral-800/80 backdrop-blur-lg" 
+            x-show="isOpen" 
+            x-cloak
+            x-transition:enter="transition ease-out duration-100 transform"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-75 transform"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            @click.away="isOpen = false"
+            @resize.window="if (window.innerWidth > 1024) isOpen = false">
+            <div class="px-2 pt-16 pb-3 space-y-1 w-full h-full">
+                <a href="#dashboard" onclick="showSection('dashboard'); isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-neutral-700">Dashboard</a>
+                <a href="#project-parameters" onclick="showSection('project-parameters'); isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-300 hover:bg-neutral-700 hover:text-white">Project Parameters</a>
+                <a href="#equipment-selection" onclick="showSection('equipment-selection'); isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-300 hover:bg-neutral-700 hover:text-white">Equipment Selection</a>
+                <a href="#location-factors" onclick="showSection('location-factors'); isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-300 hover:bg-neutral-700 hover:text-white">Location Factors</a>
+                <a href="#time-estimation" onclick="showSection('time-estimation'); isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-300 hover:bg-neutral-700 hover:text-white">Time Estimation</a>
+                <a href="#additional-services" onclick="showSection('additional-services'); isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-300 hover:bg-neutral-700 hover:text-white">Additional Services</a>
+                <a href="#quote-summary" onclick="showSection('quote-summary'); isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-300 hover:bg-neutral-700 hover:text-white">Quote Summary</a>
+                <a href="#saved-quotes" onclick="showSection('saved-quotes'); isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-300 hover:bg-neutral-700 hover:text-white">Saved Quotes</a>
+                <a href="#settings" onclick="showSection('settings'); isOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-neutral-300 hover:bg-neutral-700 hover:text-white">Settings</a>
+                <div class="px-3 py-4 mt-8 border-t border-neutral-700">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-neutral-600 flex items-center justify-center text-sm">
+                            DP
+                        </div>
+                        <div class="ml-2">
+                            <div class="text-sm font-medium text-white">Drone Pilot</div>
+                            <div class="text-xs text-neutral-400">pilot@example.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="flex-1 overflow-auto">
+        <MountPoint>
+
+</element><element id="9b22a37d-1b6f-411a-89a7-173516c30940" data-section-id="9b22a37d-1b6f-411a-89a7-173516c30940">
+
+
+<div id="layout" class="page-section bg-white rounded-lg shadow-md p-6 m-4 border border-neutral-200/30">
+  <h2 class="text-2xl font-bold mb-6 text-gray-800">Dashboard Layout</h2>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30 hover:border-neutral-200/40 transition-all">
+      <h3 class="font-semibold text-lg mb-3 text-gray-700">Quick Quote</h3>
+      <p class="text-gray-600 mb-4">Start a new drone service quote with basic parameters</p>
+      <button onclick="showSection('project-parameters')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors">
+        Create New Quote
+      </button>
+    </div>
+    
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30 hover:border-neutral-200/40 transition-all">
+      <h3 class="font-semibold text-lg mb-3 text-gray-700">Recent Quotes</h3>
+      <p class="text-gray-600 mb-4">View and edit your most recent drone service quotes</p>
+      <button onclick="showSection('saved-quotes')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors">
+        View Recent Quotes
+      </button>
+    </div>
+    
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30 hover:border-neutral-200/40 transition-all">
+      <h3 class="font-semibold text-lg mb-3 text-gray-700">Templates</h3>
+      <p class="text-gray-600 mb-4">Use pre-configured templates for common drone services</p>
+      <button onclick="showSection('dashboard')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors">
+        Browse Templates
+      </button>
+    </div>
+  </div>
+  
+  <div class="mb-8">
+    <h3 class="font-semibold text-lg mb-4 text-gray-700">Calculation Process</h3>
+    <div class="relative">
+      <div class="absolute left-5 inset-y-0 w-0.5 bg-blue-200"></div>
+      <div class="space-y-6 relative">
+        <div class="flex">
+          <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold relative z-10">1</div>
+          <div class="ml-4">
+            <h4 class="text-md font-medium text-gray-700">Project Parameters</h4>
+            <p class="text-sm text-gray-500">Define project scope, type, and client details</p>
+          </div>
+        </div>
+        
+        <div class="flex">
+          <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold relative z-10">2</div>
+          <div class="ml-4">
+            <h4 class="text-md font-medium text-gray-700">Equipment Selection</h4>
+            <p class="text-sm text-gray-500">Select drone models and necessary equipment</p>
+          </div>
+        </div>
+        
+        <div class="flex">
+          <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold relative z-10">3</div>
+          <div class="ml-4">
+            <h4 class="text-md font-medium text-gray-700">Location & Environmental Factors</h4>
+            <p class="text-sm text-gray-500">Account for travel, permits, and weather considerations</p>
+          </div>
+        </div>
+        
+        <div class="flex">
+          <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold relative z-10">4</div>
+          <div class="ml-4">
+            <h4 class="text-md font-medium text-gray-700">Time Estimation</h4>
+            <p class="text-sm text-gray-500">Calculate flight time, setup, and post-processing</p>
+          </div>
+        </div>
+        
+        <div class="flex">
+          <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold relative z-10">5</div>
+          <div class="ml-4">
+            <h4 class="text-md font-medium text-gray-700">Additional Services</h4>
+            <p class="text-sm text-gray-500">Add editing, delivery, and other value-adding services</p>
+          </div>
+        </div>
+        
+        <div class="flex">
+          <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold relative z-10">6</div>
+          <div class="ml-4">
+            <h4 class="text-md font-medium text-gray-700">Quote Summary</h4>
+            <p class="text-sm text-gray-500">Review and finalize the complete service quote</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+      <h3 class="font-semibold text-lg mb-3 text-gray-700">Calculator Benefits</h3>
+      <ul class="space-y-2 text-gray-600">
+        <li class="flex items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          Standardized pricing across the drone industry
+        </li>
+        <li class="flex items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          Consistent quoting methodology for clients
+        </li>
+        <li class="flex items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          Comprehensive factor consideration
+        </li>
+        <li class="flex items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          Time-saving automated calculations
+        </li>
+        <li class="flex items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          Professional presentation to clients
+        </li>
+      </ul>
+    </div>
+    
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+      <h3 class="font-semibold text-lg mb-3 text-gray-700">Usage Statistics</h3>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-sm font-medium text-gray-700">Aerial Photography</span>
+            <span class="text-sm font-medium text-gray-700">65%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-blue-600 h-2 rounded-full" style="width: 65%"></div>
+          </div>
+        </div>
+        
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-sm font-medium text-gray-700">Real Estate</span>
+            <span class="text-sm font-medium text-gray-700">48%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-blue-600 h-2 rounded-full" style="width: 48%"></div>
+          </div>
+        </div>
+        
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-sm font-medium text-gray-700">Construction Surveying</span>
+            <span class="text-sm font-medium text-gray-700">37%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-blue-600 h-2 rounded-full" style="width: 37%"></div>
+          </div>
+        </div>
+        
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-sm font-medium text-gray-700">Inspections</span>
+            <span class="text-sm font-medium text-gray-700">28%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-blue-600 h-2 rounded-full" style="width: 28%"></div>
+          </div>
+        </div>
+        
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-sm font-medium text-gray-700">Events & Weddings</span>
+            <span class="text-sm font-medium text-gray-700">22%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-blue-600 h-2 rounded-full" style="width: 22%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</element><element id="122f9c9e-7ab0-4fd6-8a04-ff951dc2c9c6" data-section-id="122f9c9e-7ab0-4fd6-8a04-ff951dc2c9c6">
+
+
+<div id="dashboard" class="page-section bg-white rounded-lg shadow-md p-6 m-4 border border-neutral-200/30">
+  <h2 class="text-2xl font-bold mb-6 text-gray-800">Drone Bid Calculator Dashboard</h2>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+    <!-- Summary Stats -->
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-semibold text-lg text-gray-700">Monthly Quotes</h3>
+        <span class="text-sm text-gray-500">Last 30 days</span>
+      </div>
+      <div class="flex items-end space-x-2">
+        <span class="text-3xl font-bold text-gray-800">12</span>
+        <span class="text-sm text-green-600 pb-1 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+          +20%
+        </span>
+      </div>
+      <div class="mt-4 h-12 flex items-end space-x-1">
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 30%;"></div>
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 40%;"></div>
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 20%;"></div>
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 60%;"></div>
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 40%;"></div>
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 70%;"></div>
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 50%;"></div>
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 30%;"></div>
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 50%;"></div>
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 60%;"></div>
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 80%;"></div>
+        <div class="w-1/12 bg-blue-400 rounded-t" style="height: 90%;"></div>
+      </div>
+    </div>
+    
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-semibold text-lg text-gray-700">Average Quote Value</h3>
+        <span class="text-sm text-gray-500">Last 30 days</span>
+      </div>
+      <div class="flex items-end space-x-2">
+        <span class="text-3xl font-bold text-gray-800">$1,250</span>
+        <span class="text-sm text-red-600 pb-1 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+          -5%
+        </span>
+      </div>
+      <div class="mt-4 relative pt-1">
+        <div class="flex mb-2 items-center justify-between">
+          <div>
+            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+              Target: $1,500
+            </span>
+          </div>
+        </div>
+        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+          <div style="width: 83%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-semibold text-lg text-gray-700">Quote Success Rate</h3>
+        <span class="text-sm text-gray-500">Last 30 days</span>
+      </div>
+      <div class="flex items-end space-x-2">
+        <span class="text-3xl font-bold text-gray-800">68%</span>
+        <span class="text-sm text-green-600 pb-1 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+          +8%
+        </span>
+      </div>
+      <div class="mt-4 relative">
+        <div class="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
+          <div class="h-full bg-green-500 rounded-full" style="width: 68%"></div>
+        </div>
+        <div class="flex justify-between mt-1 text-xs text-gray-500">
+          <span>0%</span>
+          <span>50%</span>
+          <span>100%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+    <!-- Recent Quotes -->
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-semibold text-lg text-gray-700">Recent Quotes</h3>
+        <button onclick="showSection('saved-quotes')" class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+          View All
+        </button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead>
+            <tr>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project Type</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Skyview Properties</td>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Real Estate</td>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">$950</td>
+              <td class="px-4 py-3 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Accepted
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Mountain Construction</td>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Site Survey</td>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">$1,850</td>
+              <td class="px-4 py-3 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                  Pending
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Coastal Utilities</td>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Inspection</td>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">$2,200</td>
+              <td class="px-4 py-3 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                  Declined
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Golden Events</td>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Wedding</td>
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">$1,500</td>
+              <td class="px-4 py-3 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Accepted
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Quote Templates -->
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-semibold text-lg text-gray-700">Quote Templates</h3>
+        <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+          Create Template
+        </button>
+      </div>
+      <div class="space-y-3">
+        <div class="p-3 bg-white rounded-md border border-neutral-200/30 hover:border-neutral-200/40 cursor-pointer transition-all flex justify-between items-center">
+          <div>
+            <h4 class="font-medium text-gray-800">Basic Real Estate</h4>
+            <p class="text-sm text-gray-500">Exterior photos, basic aerial view</p>
+          </div>
+          <div class="text-right">
+            <p class="font-medium text-gray-800">$750</p>
+            <p class="text-xs text-gray-500">2-3 hours</p>
+          </div>
+          <button onclick="showSection('project-parameters')" class="ml-4 text-blue-600 hover:text-blue-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+            </svg>
+          </button>
+        </div>
+        
+        <div class="p-3 bg-white rounded-md border border-neutral-200/30 hover:border-neutral-200/40 cursor-pointer transition-all flex justify-between items-center">
+          <div>
+            <h4 class="font-medium text-gray-800">Premium Real Estate</h4>
+            <p class="text-sm text-gray-500">Interior/exterior, 3D mapping</p>
+          </div>
+          <div class="text-right">
+            <p class="font-medium text-gray-800">$1,500</p>
+            <p class="text-xs text-gray-500">4-6 hours</p>
+          </div>
+          <button onclick="showSection('project-parameters')" class="ml-4 text-blue-600 hover:text-blue-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+            </svg>
+          </button>
+        </div>
+        
+        <div class="p-3 bg-white rounded-md border border-neutral-200/30 hover:border-neutral-200/40 cursor-pointer transition-all flex justify-between items-center">
+          <div>
+            <h4 class="font-medium text-gray-800">Construction Site Survey</h4>
+            <p class="text-sm text-gray-500">Progress tracking, measurements</p>
+          </div>
+          <div class="text-right">
+            <p class="font-medium text-gray-800">$1,800</p>
+            <p class="text-xs text-gray-500">6-8 hours</p>
+          </div>
+          <button onclick="showSection('project-parameters')" class="ml-4 text-blue-600 hover:text-blue-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+            </svg>
+          </button>
+        </div>
+        
+        <div class="p-3 bg-white rounded-md border border-neutral-200/30 hover:border-neutral-200/40 cursor-pointer transition-all flex justify-between items-center">
+          <div>
+            <h4 class="font-medium text-gray-800">Utility Inspection</h4>
+            <p class="text-sm text-gray-500">Thermal imaging, equipment check</p>
+          </div>
+          <div class="text-right">
+            <p class="font-medium text-gray-800">$2,200</p>
+            <p class="text-xs text-gray-500">4-5 hours</p>
+          </div>
+          <button onclick="showSection('project-parameters')" class="ml-4 text-blue-600 hover:text-blue-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Quick Actions -->
+    <div class="col-span-1 bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+      <h3 class="font-semibold text-lg mb-4 text-gray-700">Quick Actions</h3>
+      <div class="space-y-2">
+        <button onclick="showSection('project-parameters')" class="w-full flex items-center justify-between p-3 bg-white rounded-md border border-neutral-200/30 hover:border-blue-300 transition-all">
+          <span class="font-medium text-gray-700">New Quote</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        
+        <button onclick="showSection('saved-quotes')" class="w-full flex items-center justify-between p-3 bg-white rounded-md border border-neutral-200/30 hover:border-blue-300 transition-all">
+          <span class="font-medium text-gray-700">Saved Quotes</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" />
+            <path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z" />
+          </svg>
+        </button>
+        
+        <button onclick="showSection('settings')" class="w-full flex items-center justify-between p-3 bg-white rounded-md border border-neutral-200/30 hover:border-blue-300 transition-all">
+          <span class="font-medium text-gray-700">Manage Rates</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        
+        <button onclick="showSection('equipment-selection')" class="w-full flex items-center justify-between p-3 bg-white rounded-md border border-neutral-200/30 hover:border-blue-300 transition-all">
+          <span class="font-medium text-gray-700">Manage Equipment</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Recent Activity -->
+    <div class="col-span-2 bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+      <h3 class="font-semibold text-lg mb-4 text-gray-700">Recent Activity</h3>
+      <div class="space-y-4">
+        <div class="flex items-start space-x-3">
+          <div class="flex-shrink-0 h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-gray-800">Quote accepted by Skyview Properties</p>
+            <p class="text-xs text-gray-500">Real Estate Photography - $950</p>
+            <p class="text-xs text-gray-400 mt-1">2 hours ago</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3">
+          <div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-gray-800">Quote created for Mountain Construction</p>
+            <p class="text-xs text-gray-500">Site Survey - $1,850</p>
+            <p class="text-xs text-gray-400 mt-1">5 hours ago</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3">
+          <div class="flex-shrink-0 h-8 w-8 rounded-full bg-red-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-gray-800">Quote declined by Coastal Utilities</p>
+            <p class="text-xs text-gray-500">Inspection - $2,200</p>
+            <p class="text-xs text-gray-400 mt-1">Yesterday</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3">
+          <div class="flex-shrink-0 h-8 w-8 rounded-full bg-yellow-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-gray-800">Quote revised for Urban Roofing</p>
+            <p class="text-xs text-gray-500">Roof Inspection - $1,200</p>
+            <p class="text-xs text-gray-400 mt-1">2 days ago</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start space-x-3">
+          <div class="flex-shrink-0 h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-gray-800">Quote accepted by Golden Events</p>
+            <p class="text-xs text-gray-500">Wedding Photography - $1,500</p>
+            <p class="text-xs text-gray-400 mt-1">3 days ago</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-4 text-center">
+        <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+          View All Activity
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</element><element id="82b74b01-68bb-4a78-b2bf-2be9c48fab7a" data-section-id="82b74b01-68bb-4a78-b2bf-2be9c48fab7a">
+
+
+<div id="project-parameters" class="page-section bg-white rounded-lg shadow-md p-6 m-4 border border-neutral-200/30">
+  <h2 class="text-2xl font-bold mb-6 text-gray-800">Project Parameters</h2>
+  
+  <div class="mb-8 bg-blue-50 p-4 rounded-lg border border-blue-200">
+    <div class="flex items-start">
+      <div class="flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <div class="ml-3">
+        <h3 class="text-sm font-medium text-blue-800">Getting Started</h3>
+        <p class="text-sm text-blue-700 mt-1">Define your drone project parameters below. This information will help calculate accurate and competitive pricing for your client.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Client Information -->
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+      <h3 class="font-semibold text-lg mb-4 text-gray-700">Client Information</h3>
+      
+      <div class="mb-4">
+        <label for="client-name" class="block text-sm font-medium text-gray-700 mb-1">Client Name</label>
+        <input type="text" id="client-name" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none" placeholder="Enter client name">
+      </div>
+      
+      <div class="mb-4">
+        <label for="client-type" class="block text-sm font-medium text-gray-700 mb-1">Client Type</label>
+        <select id="client-type" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none">
+          <option value="">Select client type</option>
+          <option value="individual">Individual</option>
+          <option value="real-estate">Real Estate Agency</option>
+          <option value="construction">Construction Company</option>
+          <option value="event">Event/Wedding</option>
+          <option value="government">Government/Municipality</option>
+          <option value="utility">Utility Company</option>
+          <option value="media">Media/Production</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      
+      <div class="mb-4">
+        <label for="client-email" class="block text-sm font-medium text-gray-700 mb-1">Client Email</label>
+        <input type="email" id="client-email" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none" placeholder="Enter client email">
+      </div>
+      
+      <div class="mb-4">
+        <label for="client-phone" class="block text-sm font-medium text-gray-700 mb-1">Client Phone</label>
+        <input type="tel" id="client-phone" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none" placeholder="Enter client phone">
+      </div>
+      
+      <div>
+        <label for="client-address" class="block text-sm font-medium text-gray-700 mb-1">Client Address</label>
+        <textarea id="client-address" rows="3" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none" placeholder="Enter client address"></textarea>
+      </div>
+    </div>
+    
+    <!-- Project Type & Requirements -->
+    <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+      <h3 class="font-semibold text-lg mb-4 text-gray-700">Project Type & Requirements</h3>
+      
+      <div class="mb-4">
+        <label for="project-type" class="block text-sm font-medium text-gray-700 mb-1">Project Type</label>
+        <select id="project-type" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none">
+          <option value="">Select project type</option>
+          <option value="real-estate">Real Estate Photography</option>
+          <option value="construction-survey">Construction Site Survey</option>
+          <option value="infrastructure-inspection">Infrastructure Inspection</option>
+          <option value="wedding-event">Wedding/Event Coverage</option>
+          <option value="aerial-mapping">Aerial Mapping/Surveying</option>
+          <option value="agriculture">Agricultural Monitoring</option>
+          <option value="cinematography">Aerial Cinematography</option>
+          <option value="search-rescue">Search and Rescue</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      
+      <div class="mb-4">
+        <label for="project-complexity" class="block text-sm font-medium text-gray-700 mb-1">Project Complexity</label>
+        <div class="mt-1">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm text-gray-500">Basic</span>
+            <span class="text-sm text-gray-500">Advanced</span>
+          </div>
+          <input type="range" id="project-complexity" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+          <div class="flex justify-between text-xs text-gray-500 mt-1">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+          </div>
+        </div>
+        <p class="text-xs text-gray-500 mt-1">Current selection: <span id="complexity-value">Moderate (3)</span></p>
+      </div>
+      
+      <div class="mb-4">
+        <label for="project-area" class="block text-sm font-medium text-gray-700 mb-1">Project Area Size (acres)</label>
+        <div class="relative mt-1 rounded-md shadow-sm">
+          <input type="number" id="project-area" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none" placeholder="0.0" min="0.1" step="0.1">
+          <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+            <span class="text-gray-500 sm:text-sm">acres</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Required Deliverables</label>
+        <div class="mt-1 space-y-2">
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input id="deliverable-photos" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="deliverable-photos" class="font-medium text-gray-700">Still Photography</label>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input id="deliverable-video" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="deliverable-video" class="font-medium text-gray-700">Video Footage</label>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input id="deliverable-3d" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="deliverable-3d" class="font-medium text-gray-700">3D Mapping/Modeling</label>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input id="deliverable-thermal" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="deliverable-thermal" class="font-medium text-gray-700">Thermal Imaging</label>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input id="deliverable-lidar" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="deliverable-lidar" class="font-medium text-gray-700">LiDAR Scanning</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <label for="project-description" class="block text-sm font-medium text-gray-700 mb-1">Project Description</label>
+        <textarea id="project-description" rows="3" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none" placeholder="Enter detailed project description and requirements"></textarea>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Project Timeline -->
+  <div class="mt-8 bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+    <h3 class="font-semibold text-lg mb-4 text-gray-700">Project Timeline</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label for="project-start-date" class="block text-sm font-medium text-gray-700 mb-1">Preferred Start Date</label>
+        <input type="date" id="project-start-date" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none">
+      </div>
+      
+      <div>
+        <label for="project-deadline" class="block text-sm font-medium text-gray-700 mb-1">Delivery Deadline</label>
+        <input type="date" id="project-deadline" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none">
+      </div>
+      
+      <div>
+        <label for="project-urgency" class="block text-sm font-medium text-gray-700 mb-1">Project Urgency</label>
+        <select id="project-urgency" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none">
+          <option value="standard">Standard (No Rush)</option>
+          <option value="expedited">Expedited (2-3 Day Delivery)</option>
+          <option value="urgent">Urgent (24 Hour Delivery)</option>
+          <option value="same-day">Same Day Delivery</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="project-duration" class="block text-sm font-medium text-gray-700 mb-1">Estimated Project Duration (days)</label>
+        <input type="number" id="project-duration" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none" placeholder="1" min="1">
+      </div>
+    </div>
+  </div>
+  
+  <!-- Budget Information -->
+  <div class="mt-8 bg-gray-50 p-5 rounded-lg border border-neutral-200/30">
+    <h3 class="font-semibold text-lg mb-4 text-gray-700">Budget Information</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label for="client-budget" class="block text-sm font-medium text-gray-700 mb-1">Client Budget Range</label>
+        <select id="client-budget" class="w-full px-3 py-2 border border-neutral-300/30 focus:border-blue-500/50 rounded-md shadow-sm focus:outline-none">
+          <option value="">Select budget range</option>
+          <option value="below-500">Below $500</option>
+          <option value="500-1000">$500 - $1,000</option>
+          <option value="1000-2000">$1,000 - $2,000</option>
+          <option value="2000-3000">$2,000 - $3,000</option>
+          <option value="3000-5000">$3,000 - $5,000</option>
+          <option value="above-5000">Above $5,000</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="budget-flexibility" class="block text-sm font-medium text-gray-700 mb-1">Budget Flexibility</label>
+        <div class="mt-1">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-sm text-gray-500">Strict</span>
+            <span class="text-sm text-gray-500">Flexible</span>
+          </div>
+          <input type="range" id="budget-flexibility" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+          <div class="flex justify-between text-xs text-gray-500 mt-1">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+          </div>
+        </div>
+        <p class="text-xs text-gray-500 mt-1">Current selection: <span id="flexibility-value">Moderate (3)</span></p>
+      </div>
+    </div>
+    
+    <div class="mt-4">
+      <div class="flex items-start">
+        <div class="flex items-center h-5">
+          <input id="recurring-project" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+        </div>
+        <div class="ml-3 text-sm">
+          <label for="recurring-project" class="font-medium text-gray-700">This is a recurring project</label>
+          <p class="text-gray-500">May qualify for special pricing or package deals</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Action Buttons -->
+  <div class="mt-8 flex justify-between">
+    <button type="button" onclick="showSection('dashboard')" class="py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+      Back to Dashboard
+    </button>
+    
+    <div class="space-x-3">
+      <button type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        Save as Draft
+      </button>
+      <button type="button" onclick="showSection('equipment-selection')" class="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        Next: Equipment Selection
+      </button>
+    </div>
+  </div>
+  
+  <script>
+    // Simple script to update displayed values for range sliders
+    document.getElementById('project-complexity').addEventListener('input', function() {
+      const complexityLabels = ['Very Basic (1)', 'Basic (2)', 'Moderate (3)', 'Advanced (4)', 'Very Advanced (5)'];
+      document.getElementById('complexity-value').textContent = complexityLabels[this.value - 1];
+    });
+    
+    document.getElementById('budget-flexibility').addEventListener('input', function() {
+      const flexibilityLabels = ['Very Strict (1)', 'Strict (2)', 'Moderate (3)', 'Flexible (4)', 'Very Flexible (5)'];
+      document.getElementById('flexibility-value').textContent = flexibilityLabels[this.value - 1];
+    });
+  </script>
+</div>
+
+</element><element id="c392c911-7612-4afb-a739-44eaebc4143b" data-section-id="c392c911-7612-4afb-a739-44eaebc4143b">
+
+
+<div id="equipment-selection" class="page-section bg-white rounded-lg shadow-md p-6 m-4 border border-neutral-200/30">
+  <h2 class="text-2xl font-bold mb-6 text-gray-800">Equipment Selection</h2>
+  
+  <div class="mb-8 bg-blue-50 p-4 rounded-lg border border-blue-200">
+    <div class="flex items-start">
+      <div class="flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <div class="ml-3">
+        <h3 class="text-sm font-medium text-blue-800">Equipment Selection</h3>
+        <p class="text-sm text-blue-700 mt-1">Select the drone equipment required for your project. Your selections impact the final quote calculation.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Primary Drone Selection -->
+  <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30 mb-8">
+    <h3 class="font-semibold text-lg mb-4 text-gray-700">Primary Drone</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="relative border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-4 bg-white cursor-pointer transition-all">
+        <input type="radio" name="primary-drone" id="drone-basic" class="absolute h-5 w-5 top-4 right-4">
+        <label for="drone-basic" class="cursor-pointer block">
+          <div class="text-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v4m0 4h.01" />
+            </svg>
+          </div>
+          <h4 class="font-medium text-gray-900 text-center">Basic Drone</h4>
+          <ul class="mt-2 text-sm text-gray-600 space-y-1">
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              12MP Camera
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              4K/30fps Video
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              30 min Flight Time
+            </li>
+          </ul>
+          <div class="mt-3 text-center text-sm font-semibold text-gray-900">$35/day</div>
+        </label>
+      </div>
+      
+      <div class="relative border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-4 bg-white cursor-pointer transition-all">
+        <input type="radio" name="primary-drone" id="drone-professional" class="absolute h-5 w-5 top-4 right-4" checked>
+        <label for="drone-professional" class="cursor-pointer block">
+          <div class="text-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v4m0 4h.01" />
+            </svg>
+          </div>
+          <h4 class="font-medium text-gray-900 text-center">Professional Drone</h4>
+          <ul class="mt-2 text-sm text-gray-600 space-y-1">
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              20MP Camera
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              4K/60fps Video
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              35 min Flight Time
+            </li>
+          </ul>
+          <div class="mt-3 text-center text-sm font-semibold text-gray-900">$75/day</div>
+        </label>
+      </div>
+      
+      <div class="relative border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-4 bg-white cursor-pointer transition-all">
+        <input type="radio" name="primary-drone" id="drone-advanced" class="absolute h-5 w-5 top-4 right-4">
+        <label for="drone-advanced" class="cursor-pointer block">
+          <div class="text-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v4m0 4h.01" />
+            </svg>
+          </div>
+          <h4 class="font-medium text-gray-900 text-center">Advanced Drone</h4>
+          <ul class="mt-2 text-sm text-gray-600 space-y-1">
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              45MP Camera
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              8K/30fps Video
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              45 min Flight Time
+            </li>
+          </ul>
+          <div class="mt-3 text-center text-sm font-semibold text-gray-900">$150/day</div>
+        </label>
+      </div>
+    </div>
+    
+    <div class="mt-4">
+      <label for="drone-quantity" class="block text-sm font-medium text-gray-700 mb-1">Number of Drones Needed</label>
+      <div class="w-40">
+        <div class="flex rounded-md shadow-sm border border-neutral-300/30">
+          <button type="button" class="px-3 py-2 text-gray-500 border-r border-neutral-300/30 focus:outline-none" onclick="decrementQuantity()">-</button>
+          <input type="number" id="drone-quantity" class="flex-1 px-3 py-2 text-center focus:outline-none" min="1" value="1">
+          <button type="button" class="px-3 py-2 text-gray-500 border-l border-neutral-300/30 focus:outline-none" onclick="incrementQuantity()">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Specialized Equipment -->
+  <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30 mb-8">
+    <h3 class="font-semibold text-lg mb-4 text-gray-700">Specialized Equipment</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-3 bg-white cursor-pointer transition-all">
+        <div class="flex items-start">
+          <div class="flex items-center h-5 mt-1">
+            <input id="thermal-camera" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+          </div>
+          <div class="ml-3 flex-1">
+            <label for="thermal-camera" class="font-medium text-gray-700 cursor-pointer">Thermal Camera</label>
+            <p class="text-xs text-gray-500 mt-1">Heat sensing for inspections and search operations</p>
+            <div class="mt-1 text-sm font-semibold text-gray-900">$95/day</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-3 bg-white cursor-pointer transition-all">
+        <div class="flex items-start">
+          <div class="flex items-center h-5 mt-1">
+            <input id="zoom-camera" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+          </div>
+          <div class="ml-3 flex-1">
+            <label for="zoom-camera" class="font-medium text-gray-700 cursor-pointer">Zoom Camera (30x)</label>
+            <p class="text-xs text-gray-500 mt-1">Long-distance detailed photography and videography</p>
+            <div class="mt-1 text-sm font-semibold text-gray-900">$65/day</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-3 bg-white cursor-pointer transition-all">
+        <div class="flex items-start">
+          <div class="flex items-center h-5 mt-1">
+            <input id="lidar-scanner" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+          </div>
+          <div class="ml-3 flex-1">
+            <label for="lidar-scanner" class="font-medium text-gray-700 cursor-pointer">LiDAR Scanner</label>
+            <p class="text-xs text-gray-500 mt-1">Precise 3D mapping and measurement capabilities</p>
+            <div class="mt-1 text-sm font-semibold text-gray-900">$175/day</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-3 bg-white cursor-pointer transition-all">
+        <div class="flex items-start">
+          <div class="flex items-center h-5 mt-1">
+            <input id="multispectral" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+          </div>
+          <div class="ml-3 flex-1">
+            <label for="multispectral" class="font-medium text-gray-700 cursor-pointer">Multispectral Sensor</label>
+            <p class="text-xs text-gray-500 mt-1">Specialized imaging for agriculture and environmental analysis</p>
+            <div class="mt-1 text-sm font-semibold text-gray-900">$125/day</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-3 bg-white cursor-pointer transition-all">
+        <div class="flex items-start">
+          <div class="flex items-center h-5 mt-1">
+            <input id="spotlight" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+          </div>
+          <div class="ml-3 flex-1">
+            <label for="spotlight" class="font-medium text-gray-700 cursor-pointer">Spotlight System</label>
+            <p class="text-xs text-gray-500 mt-1">High-powered LED for night operations and low light conditions</p>
+            <div class="mt-1 text-sm font-semibold text-gray-900">$45/day</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-3 bg-white cursor-pointer transition-all">
+        <div class="flex items-start">
+          <div class="flex items-center h-5 mt-1">
+            <input id="speaker" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+          </div>
+          <div class="ml-3 flex-1">
+            <label for="speaker" class="font-medium text-gray-700 cursor-pointer">Speaker System</label>
+            <p class="text-xs text-gray-500 mt-1">Public address and announcement capabilities</p>
+            <div class="mt-1 text-sm font-semibold text-gray-900">$35/day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Accessories & Support -->
+  <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30 mb-8">
+    <h3 class="font-semibold text-lg mb-4 text-gray-700">Accessories & Support Equipment</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-4 bg-white">
+        <h4 class="font-medium text-gray-900 mb-3">Battery Requirements</h4>
+        
+        <div class="mb-3">
+          <label for="flight-duration" class="block text-sm font-medium text-gray-700 mb-1">Estimated Total Flight Duration (hours)</label>
+          <div class="flex items-center">
+            <input type="range" id="flight-duration" min="0.5" max="10" step="0.5" value="2" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+            <span class="ml-2 text-sm font-medium text-gray-700" id="duration-value">2 hrs</span>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between mt-4 text-sm text-gray-600">
+          <span>Recommended Batteries:</span>
+          <span id="battery-count" class="font-semibold">4 batteries</span>
+        </div>
+        
+        <div class="flex items-center justify-between mt-1 text-sm text-gray-600">
+          <span>Battery Pack Cost:</span>
+          <span id="battery-cost" class="font-semibold">$80</span>
+        </div>
+      </div>
+      
+      <div class="border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-4 bg-white">
+        <h4 class="font-medium text-gray-900 mb-3">Controllers & Monitors</h4>
+        
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input id="extra-controller" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="extra-controller" class="ml-2 text-sm text-gray-700">Extra Controller ($35/day)</label>
+          </div>
+          
+          <div class="flex items-center">
+            <input id="high-brightness" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="high-brightness" class="ml-2 text-sm text-gray-700">High-Brightness Monitor ($45/day)</label>
+          </div>
+          
+          <div class="flex items-center">
+            <input id="fpv-goggles" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="fpv-goggles" class="ml-2 text-sm text-gray-700">FPV Goggles ($50/day)</label>
+          </div>
+          
+          <div class="flex items-center">
+            <input id="ground-station" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="ground-station" class="ml-2 text-sm text-gray-700">Portable Ground Station ($85/day)</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-4 bg-white">
+        <h4 class="font-medium text-gray-900 mb-3">Storage & Transport</h4>
+        
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input id="microsd-256" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="microsd-256" class="ml-2 text-sm text-gray-700">256GB MicroSD Cards (2-pack) ($40)</label>
+          </div>
+          
+          <div class="flex items-center">
+            <input id="ssd-1tb" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="ssd-1tb" class="ml-2 text-sm text-gray-700">1TB Portable SSD ($25/day)</label>
+          </div>
+          
+          <div class="flex items-center">
+            <input id="hard-case" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="hard-case" class="ml-2 text-sm text-gray-700">Waterproof Hard Case ($20/day)</label>
+          </div>
+          
+          <div class="flex items-center">
+            <input id="backpack" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="backpack" class="ml-2 text-sm text-gray-700">Drone Backpack ($15/day)</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border border-neutral-200/30 hover:border-neutral-200/40 rounded-lg p-4 bg-white">
+        <h4 class="font-medium text-gray-900 mb-3">Safety & Extras</h4>
+        
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input id="propeller-guards" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="propeller-guards" class="ml-2 text-sm text-gray-700">Propeller Guards ($10/day)</label>
+          </div>
+          
+          <div class="flex items-center">
+            <input id="landing-pad" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="landing-pad" class="ml-2 text-sm text-gray-700">Portable Landing Pad ($5/day)</label>
+          </div>
+          
+          <div class="flex items-center">
+            <input id="nd-filters" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="nd-filters" class="ml-2 text-sm text-gray-700">ND Filter Set ($15/day)</label>
+          </div>
+          
+          <div class="flex items-center">
+            <input id="strobe-lights" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="strobe-lights" class="ml-2 text-sm text-gray-700">Anti-Collision Strobe Lights ($12/day)</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Equipment Summary -->
+  <div class="bg-gray-50 p-5 rounded-lg border border-neutral-200/30 mb-8">
+    <h3 class="font-semibold text-lg mb-4 text-gray-700">Equipment Summary</h3>
+    
+    <div class="overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-100">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Equipment</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rate</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Professional Drone</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$75/day</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$75</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Battery Pack (4 batteries)</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$80</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$80</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-right font-bold" colspan="3">Equipment Subtotal:</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">$155</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="mt-4 text-sm text-gray-500">
+      Note: Final quote will include additional services, travel costs, and operator fees.
+    </div>
+  </div>
+  
+  <!-- Action Buttons -->
+  <div class="mt-8 flex justify-between">
+    <button type="button" onclick="showSection('project-parameters')" class="py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+      Back: Project Parameters
+    </button>
+    
+    <div class="space-x-3">
+      <button type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        Save as Draft
+      </button>
+      <button type="button" onclick="showSection('location-factors')" class="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        Next: Location Factors
+      </button>
+    </div>
+  </div>
+  
+  <script>
+    // Simple scripts to update displayed values
+    document.getElementById('flight-duration').addEventListener('input', function() {
+      const duration = parseFloat(this.value);
+      document.getElementById('duration-value').textContent = duration + ' hrs';
+      
+      // Calculate recommended batteries (rough estimate: 1 battery per 30 min flight time + buffer)
+      const batteries = Math.ceil(duration / 0.5) + 1; // Adding 1 for buffer
+      document.getElementById('battery-count').textContent = batteries + ' batteries';
+      
+      // Calculate battery pack cost ($20 per battery)
+      const cost = batteries * 20;
+      document.getElementById('battery-cost').textContent = '
+      </main>
+
+      <!-- {bodyScripts} -->
+   </body>
+</html> + cost;
+    });
+    
+    function incrementQuantity() {
+      const input = document.getElementById('drone-quantity');
+      input.value = parseInt(input.value) + 1;
+    }
+    
+    function decrementQuantity() {
+      const input = document.getElementById('drone-quantity');
+      if (parseInt(input.value) > 1) {
+        input.value = parseInt(input.value) - 1;
+      }
+    }
+  </script>
+</div>
+
+</element><element id="2f7f0a9f-eaf8-4b5a-b679-ce60576e1158" data-section-id="2f7f0a9f-eaf8-4b5a-b679-ce60576e1158">
+
+
+<div id="root">
+  <section id="location-factors" class="page-section bg-white p-4 md:p-6 lg:p-8 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Location Factors</h2>
+    
+    <p class="text-gray-600 mb-6">
+      The location of your drone project significantly impacts the final quote. Adjust the factors below to calculate the appropriate location-based pricing.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Area Type Selection -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Area Type</h3>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input type="radio" id="urban" name="area-type" value="urban" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="urban" class="ml-2 block text-sm text-gray-700">Urban (+25%)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="suburban" name="area-type" value="suburban" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="suburban" class="ml-2 block text-sm text-gray-700">Suburban (+10%)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="rural" name="area-type" value="rural" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+            <label for="rural" class="ml-2 block text-sm text-gray-700">Rural (Base rate)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="remote" name="area-type" value="remote" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="remote" class="ml-2 block text-sm text-gray-700">Remote (+35%)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flight Restrictions -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Flight Restrictions</h3>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input type="checkbox" id="controlled-airspace" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="controlled-airspace" class="ml-2 block text-sm text-gray-700">Controlled Airspace (+15%)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="authorization-required" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="authorization-required" class="ml-2 block text-sm text-gray-700">Authorization Required (+10%)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="restricted-zone" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="restricted-zone" class="ml-2 block text-sm text-gray-700">Near Restricted Zone (+20%)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="night-operations" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="night-operations" class="ml-2 block text-sm text-gray-700">Night Operations (+25%)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Distance From Base -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Distance From Base</h3>
+        <div class="mb-2">
+          <label for="distance-slider" class="block text-sm text-gray-700 mb-1">Travel distance: <span id="distance-value">25</span> miles</label>
+          <input type="range" id="distance-slider" min="0" max="200" value="25" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+        </div>
+        <div class="flex justify-between text-xs text-gray-500">
+          <span>0 mi</span>
+          <span>50 mi</span>
+          <span>100 mi</span>
+          <span>150 mi</span>
+          <span>200 mi</span>
+        </div>
+        <p class="text-sm text-gray-600 mt-2">Distance surcharge: <span class="font-medium">$50</span></p>
+      </div>
+
+      <!-- Terrain Difficulty -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Terrain Difficulty</h3>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input type="radio" id="terrain-easy" name="terrain" value="easy" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+            <label for="terrain-easy" class="ml-2 block text-sm text-gray-700">Flat, Open Areas (Base rate)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="terrain-moderate" name="terrain" value="moderate" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="terrain-moderate" class="ml-2 block text-sm text-gray-700">Moderate (Hills, Light Forest) (+15%)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="terrain-difficult" name="terrain" value="difficult" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="terrain-difficult" class="ml-2 block text-sm text-gray-700">Difficult (Mountains, Dense Forest) (+30%)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="terrain-extreme" name="terrain" value="extreme" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="terrain-extreme" class="ml-2 block text-sm text-gray-700">Extreme (Cliffs, Water, Hazards) (+50%)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location Accessibility -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 md:col-span-2">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Location Accessibility</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <div class="flex items-center">
+              <input type="checkbox" id="vehicle-access" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+              <label for="vehicle-access" class="ml-2 block text-sm text-gray-700">Vehicle Access (Base)</label>
+            </div>
+            <div class="flex items-center mt-2">
+              <input type="checkbox" id="walking-required" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="walking-required" class="ml-2 block text-sm text-gray-700">Walking Required (+10%)</label>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center">
+              <input type="checkbox" id="permission-required" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="permission-required" class="ml-2 block text-sm text-gray-700">Permission Required (+5%)</label>
+            </div>
+            <div class="flex items-center mt-2">
+              <input type="checkbox" id="guide-required" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="guide-required" class="ml-2 block text-sm text-gray-700">Guide Required (+20%)</label>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center">
+              <input type="checkbox" id="special-equipment" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="special-equipment" class="ml-2 block text-sm text-gray-700">Special Equipment Needed (+15%)</label>
+            </div>
+            <div class="flex items-center mt-2">
+              <input type="checkbox" id="hazardous-conditions" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="hazardous-conditions" class="ml-2 block text-sm text-gray-700">Hazardous Conditions (+30%)</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Location Factor Summary -->
+    <div class="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-100">
+      <h3 class="font-semibold text-lg text-blue-800 mb-2">Location Factor Summary</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <p class="text-sm text-gray-700">Base Rate: <span class="font-medium">$100</span></p>
+          <p class="text-sm text-gray-700">Area Type Adjustment: <span class="font-medium">+$0</span></p>
+          <p class="text-sm text-gray-700">Flight Restrictions: <span class="font-medium">+$0</span></p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-700">Distance Surcharge: <span class="font-medium">+$50</span></p>
+          <p class="text-sm text-gray-700">Terrain Difficulty: <span class="font-medium">+$0</span></p>
+          <p class="text-sm text-gray-700">Accessibility Factors: <span class="font-medium">+$0</span></p>
+        </div>
+      </div>
+      <div class="mt-3 pt-3 border-t border-blue-200">
+        <p class="text-lg font-bold text-gray-800">Location Factor Total: <span class="text-blue-600">$150</span></p>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-between">
+      <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
+        Previous: Project Specs
+      </button>
+      <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Next: Equipment Requirements
+      </button>
+    </div>
+  </section>
+</div>
+
+</element><element id="054a41ac-aec5-4b9a-8d96-1021576e9cd2" data-section-id="054a41ac-aec5-4b9a-8d96-1021576e9cd2">
+
+
+<div id="root">
+  <section id="time-estimation" class="page-section bg-white p-4 md:p-6 lg:p-8 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Time Estimation</h2>
+    
+    <p class="text-gray-600 mb-6">
+      Accurately estimate the time required for your drone project. Time factors directly impact your quote.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Flight Duration -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Flight Duration</h3>
+        <div class="mb-2">
+          <label for="flight-duration-slider" class="block text-sm text-gray-700 mb-1">Estimated flight time: <span id="flight-duration-value">45</span> minutes</label>
+          <input type="range" id="flight-duration-slider" min="10" max="180" value="45" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+        </div>
+        <div class="flex justify-between text-xs text-gray-500">
+          <span>10 min</span>
+          <span>60 min</span>
+          <span>120 min</span>
+          <span>180 min</span>
+        </div>
+        <p class="text-sm text-gray-600 mt-2">Base rate: $25 per 15 minutes</p>
+      </div>
+
+      <!-- Setup Time -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Setup & Preparation Time</h3>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input type="radio" id="setup-minimal" name="setup-time" value="minimal" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="setup-minimal" class="ml-2 block text-sm text-gray-700">Minimal (15 mins, +$25)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="setup-standard" name="setup-time" value="standard" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+            <label for="setup-standard" class="ml-2 block text-sm text-gray-700">Standard (30 mins, +$50)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="setup-extensive" name="setup-time" value="extensive" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="setup-extensive" class="ml-2 block text-sm text-gray-700">Extensive (60 mins, +$100)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="setup-complex" name="setup-time" value="complex" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="setup-complex" class="ml-2 block text-sm text-gray-700">Complex (90+ mins, +$150)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post-Processing Time -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Post-Processing Requirements</h3>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input type="checkbox" id="raw-delivery" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+            <label for="raw-delivery" class="ml-2 block text-sm text-gray-700">Raw Footage Delivery (Base)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="basic-editing" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="basic-editing" class="ml-2 block text-sm text-gray-700">Basic Editing (1-2 hrs, +$75)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="advanced-editing" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="advanced-editing" class="ml-2 block text-sm text-gray-700">Advanced Editing (3-5 hrs, +$150)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="color-grading" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="color-grading" class="ml-2 block text-sm text-gray-700">Color Grading (2 hrs, +$100)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="3d-mapping" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="3d-mapping" class="ml-2 block text-sm text-gray-700">3D Mapping/Modeling (5+ hrs, +$250)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Turnaround Time -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Delivery Turnaround Time</h3>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input type="radio" id="turnaround-standard" name="turnaround" value="standard" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+            <label for="turnaround-standard" class="ml-2 block text-sm text-gray-700">Standard (3-5 business days)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="turnaround-expedited" name="turnaround" value="expedited" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="turnaround-expedited" class="ml-2 block text-sm text-gray-700">Expedited (1-2 business days, +25%)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="turnaround-rush" name="turnaround" value="rush" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="turnaround-rush" class="ml-2 block text-sm text-gray-700">Rush (24 hours, +50%)</label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="turnaround-same-day" name="turnaround" value="same-day" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="turnaround-same-day" class="ml-2 block text-sm text-gray-700">Same Day (where possible, +100%)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Time Factors -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 md:col-span-2">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Additional Time Factors</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <div class="flex items-center">
+              <input type="checkbox" id="multiple-locations" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="multiple-locations" class="ml-2 block text-sm text-gray-700">Multiple Locations (+30 min per site)</label>
+            </div>
+            <div class="flex items-center mt-2">
+              <input type="checkbox" id="battery-changes" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="battery-changes" class="ml-2 block text-sm text-gray-700">Multiple Battery Changes (+15 min each)</label>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center">
+              <input type="checkbox" id="client-direction" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="client-direction" class="ml-2 block text-sm text-gray-700">Client Direction On-Site (+1 hour)</label>
+            </div>
+            <div class="flex items-center mt-2">
+              <input type="checkbox" id="weather-delays" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="weather-delays" class="ml-2 block text-sm text-gray-700">Potential Weather Delays (+20%)</label>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center">
+              <input type="checkbox" id="specialized-shots" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="specialized-shots" class="ml-2 block text-sm text-gray-700">Specialized Shot Planning (+45 min)</label>
+            </div>
+            <div class="flex items-center mt-2">
+              <input type="checkbox" id="site-survey" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="site-survey" class="ml-2 block text-sm text-gray-700">Pre-Flight Site Survey (+1 hour)</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Time Estimation Summary -->
+    <div class="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-100">
+      <h3 class="font-semibold text-lg text-blue-800 mb-2">Time Estimation Summary</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <p class="text-sm text-gray-700">Flight Time Cost: <span class="font-medium">$75</span> (45 minutes)</p>
+          <p class="text-sm text-gray-700">Setup & Preparation: <span class="font-medium">$50</span> (Standard)</p>
+          <p class="text-sm text-gray-700">Post-Processing: <span class="font-medium">$0</span> (Raw Footage Only)</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-700">Turnaround Premium: <span class="font-medium">$0</span> (Standard)</p>
+          <p class="text-sm text-gray-700">Additional Time Factors: <span class="font-medium">$0</span></p>
+          <p class="text-sm text-gray-700">Total Time Estimate: <span class="font-medium">1 hour 15 minutes</span></p>
+        </div>
+      </div>
+      <div class="mt-3 pt-3 border-t border-blue-200">
+        <p class="text-lg font-bold text-gray-800">Time Factor Total: <span class="text-blue-600">$125</span></p>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-between">
+      <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
+        Previous: Location Factors
+      </button>
+      <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Next: Equipment Selection
+      </button>
+    </div>
+  </section>
+</div>
+
+</element><element id="1d96ddb7-556e-4ce9-b7a9-07123ee3ad0b" data-section-id="1d96ddb7-556e-4ce9-b7a9-07123ee3ad0b">
+
+
+<div id="root">
+  <section id="additional-services" class="page-section bg-white p-4 md:p-6 lg:p-8 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Additional Services</h2>
+    
+    <p class="text-gray-600 mb-6">
+      Enhance your drone project with these specialized services to meet specific requirements and add value.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Editing & Post-Production -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Editing & Post-Production</h3>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input type="checkbox" id="video-highlight-reel" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="video-highlight-reel" class="ml-2 block text-sm text-gray-700">Video Highlight Reel (1-2 min) - $150</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="photo-retouching" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="photo-retouching" class="ml-2 block text-sm text-gray-700">Photo Retouching (per 10 images) - $75</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="branded-graphics" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="branded-graphics" class="ml-2 block text-sm text-gray-700">Branded Graphics & Lower Thirds - $100</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="music-licensing" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="music-licensing" class="ml-2 block text-sm text-gray-700">Music Licensing & Sound Design - $125</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="full-video-production" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="full-video-production" class="ml-2 block text-sm text-gray-700">Full Video Production (3-5 min) - $500</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Analysis & Reporting -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Data Analysis & Reporting</h3>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input type="checkbox" id="orthomosaic-mapping" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="orthomosaic-mapping" class="ml-2 block text-sm text-gray-700">Orthomosaic Mapping - $200</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="3d-modeling" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="3d-modeling" class="ml-2 block text-sm text-gray-700">3D Modeling & Point Cloud Generation - $350</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="thermal-analysis" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="thermal-analysis" class="ml-2 block text-sm text-gray-700">Thermal Analysis Report - $250</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="vegetation-analysis" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="vegetation-analysis" class="ml-2 block text-sm text-gray-700">Vegetation/NDVI Analysis - $200</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="volumetric-calculation" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="volumetric-calculation" class="ml-2 block text-sm text-gray-700">Volumetric Calculation - $175</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delivery Options -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Delivery Options</h3>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input type="checkbox" id="digital-download" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+            <label for="digital-download" class="ml-2 block text-sm text-gray-700">Digital Download Link (Standard) - Included</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="usb-delivery" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="usb-delivery" class="ml-2 block text-sm text-gray-700">USB Drive Delivery - $25</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="cloud-storage" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="cloud-storage" class="ml-2 block text-sm text-gray-700">Cloud Storage (30 days) - $15</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="hard-drive" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="hard-drive" class="ml-2 block text-sm text-gray-700">External Hard Drive (1TB) - $85</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="express-shipping" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="express-shipping" class="ml-2 block text-sm text-gray-700">Express Shipping - $35</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Support -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Additional Support</h3>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <input type="checkbox" id="onsite-consultation" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="onsite-consultation" class="ml-2 block text-sm text-gray-700">Onsite Consultation (1 hour) - $100</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="flight-planning" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="flight-planning" class="ml-2 block text-sm text-gray-700">Custom Flight Planning - $75</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="permit-assistance" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="permit-assistance" class="ml-2 block text-sm text-gray-700">Permit & Authorization Assistance - $150</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="client-review" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="client-review" class="ml-2 block text-sm text-gray-700">Client Review Session (virtual) - $50</label>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="rush-processing" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+            <label for="rush-processing" class="ml-2 block text-sm text-gray-700">Rush Processing (24hr turnaround) - $200</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Insurance & Liability -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 md:col-span-2">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Insurance & Liability Options</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <div class="flex items-center">
+              <input type="radio" id="standard-liability" name="insurance" value="standard" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+              <label for="standard-liability" class="ml-2 block text-sm text-gray-700">Standard Liability ($1M coverage) - Included</label>
+            </div>
+            <div class="flex items-center mt-2">
+              <input type="radio" id="extended-liability" name="insurance" value="extended" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="extended-liability" class="ml-2 block text-sm text-gray-700">Extended Liability ($2M coverage) - $75</label>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center">
+              <input type="radio" id="premium-liability" name="insurance" value="premium" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="premium-liability" class="ml-2 block text-sm text-gray-700">Premium Liability ($5M coverage) - $150</label>
+            </div>
+            <div class="flex items-center mt-2">
+              <input type="checkbox" id="additional-insured" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+              <label for="additional-insured" class="ml-2 block text-sm text-gray-700">Add Client as Additional Insured - $50</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Services -->
+    <div class="mt-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
+      <h3 class="font-semibold text-lg text-gray-700 mb-3">Custom Services Request</h3>
+      <p class="text-sm text-gray-600 mb-3">Need something specific not listed above? Describe your requirements below:</p>
+      <textarea 
+        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        rows="3"
+        placeholder="Describe your custom service needs..."
+      ></textarea>
+      <button class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Request Quote for Custom Service
+      </button>
+    </div>
+
+    <!-- Additional Services Summary -->
+    <div class="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-100">
+      <h3 class="font-semibold text-lg text-blue-800 mb-2">Additional Services Summary</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <p class="text-sm text-gray-700">Editing & Post-Production: <span class="font-medium">$0</span></p>
+          <p class="text-sm text-gray-700">Data Analysis & Reporting: <span class="font-medium">$0</span></p>
+          <p class="text-sm text-gray-700">Delivery Options: <span class="font-medium">$0</span> (Standard)</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-700">Additional Support: <span class="font-medium">$0</span></p>
+          <p class="text-sm text-gray-700">Insurance & Liability: <span class="font-medium">$0</span> (Standard)</p>
+          <p class="text-sm text-gray-700">Custom Services: <span class="font-medium">$0</span></p>
+        </div>
+      </div>
+      <div class="mt-3 pt-3 border-t border-blue-200">
+        <p class="text-lg font-bold text-gray-800">Additional Services Total: <span class="text-blue-600">$0</span></p>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-between">
+      <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
+        Previous: Equipment Selection
+      </button>
+      <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Next: Quote Summary
+      </button>
+    </div>
+  </section>
+</div>
+
+</element><element id="c2e72153-677a-445f-a1ca-468daf6d2dfb" data-section-id="c2e72153-677a-445f-a1ca-468daf6d2dfb">
+
+
+<div id="root">
+  <section id="quote-summary" class="page-section bg-white p-4 md:p-6 lg:p-8 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Quote Summary</h2>
+    
+    <p class="text-gray-600 mb-6">
+      Review your comprehensive drone service quote based on your selected parameters.
+    </p>
+
+    <!-- Project Details Summary -->
+    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+      <h3 class="font-semibold text-lg text-gray-700 mb-3">Project Details</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <p class="text-sm text-gray-600 font-medium">Client:</p>
+          <p class="text-sm text-gray-800">ABC Properties</p>
+          
+          <p class="text-sm text-gray-600 font-medium mt-3">Project Type:</p>
+          <p class="text-sm text-gray-800">Real Estate Photography</p>
+          
+          <p class="text-sm text-gray-600 font-medium mt-3">Location:</p>
+          <p class="text-sm text-gray-800">123 Main Street, Los Angeles, CA</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-600 font-medium">Date Requested:</p>
+          <p class="text-sm text-gray-800">March 15, 2023</p>
+          
+          <p class="text-sm text-gray-600 font-medium mt-3">Quote Valid Until:</p>
+          <p class="text-sm text-gray-800">April 15, 2023</p>
+          
+          <p class="text-sm text-gray-600 font-medium mt-3">Quote Reference:</p>
+          <p class="text-sm text-gray-800">#DRN-2023-0342</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cost Breakdown -->
+    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+      <h3 class="font-semibold text-lg text-gray-700 mb-3">Cost Breakdown</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-full divide-y divide-gray-300">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Details</th>
+              <th class="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr>
+              <td class="px-4 py-3 text-sm text-gray-700">Base Flight Cost</td>
+              <td class="px-4 py-3 text-sm text-gray-600">Standard Aerial Photography Package</td>
+              <td class="px-4 py-3 text-sm text-gray-700 text-right">$300.00</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-sm text-gray-700">Location Factors</td>
+              <td class="px-4 py-3 text-sm text-gray-600">Urban Area (+25%), Controlled Airspace (+15%)</td>
+              <td class="px-4 py-3 text-sm text-gray-700 text-right">$120.00</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-sm text-gray-700">Time Estimation</td>
+              <td class="px-4 py-3 text-sm text-gray-600">Flight Time (45 min), Setup (30 min), Standard Turnaround</td>
+              <td class="px-4 py-3 text-sm text-gray-700 text-right">$125.00</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-sm text-gray-700">Equipment</td>
+              <td class="px-4 py-3 text-sm text-gray-600">DJI Mavic 3 Pro, 3-Axis Gimbal, 4K Camera</td>
+              <td class="px-4 py-3 text-sm text-gray-700 text-right">$150.00</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 text-sm text-gray-700">Additional Services</td>
+              <td class="px-4 py-3 text-sm text-gray-600">Basic Editing, Digital Delivery</td>
+              <td class="px-4 py-3 text-sm text-gray-700 text-right">$75.00</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="bg-gray-50">
+              <td class="px-4 py-3 text-sm font-medium text-gray-700">Subtotal</td>
+              <td class="px-4 py-3"></td>
+              <td class="px-4 py-3 text-sm font-medium text-gray-700 text-right">$770.00</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="px-4 py-3 text-sm text-gray-700">Tax (9.5%)</td>
+              <td class="px-4 py-3"></td>
+              <td class="px-4 py-3 text-sm text-gray-700 text-right">$73.15</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <td class="px-4 py-3 text-base font-bold text-gray-700">Total</td>
+              <td class="px-4 py-3"></td>
+              <td class="px-4 py-3 text-base font-bold text-blue-600 text-right">$843.15</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- Project Specifications -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Selected Equipment</h3>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>DJI Mavic 3 Pro with 4/3 CMOS Hasselblad Camera</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>3-Axis Gimbal Stabilization</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>4K/60fps Video Capability</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>20MP Still Photography</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>3 Batteries (46 min flight time each)</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <h3 class="font-semibold text-lg text-gray-700 mb-3">Deliverables</h3>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>25 High-Resolution Edited Aerial Photos</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>5 Minutes of 4K Aerial Footage (Raw)</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>Basic Video Editing and Color Correction</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>Digital Delivery via Secure Link</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="h-5 w-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>Full Usage Rights for Commercial Purposes</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Terms and Notes -->
+    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+      <h3 class="font-semibold text-lg text-gray-700 mb-3">Terms & Conditions</h3>
+      <div class="text-sm text-gray-600 space-y-2">
+        <p>• 50% deposit required to secure booking date, balance due upon delivery</p>
+        <p>• Weather rescheduling at no additional charge with 24-hour notice</p>
+        <p>• Cancellation: 100% refund with 72+ hours notice, 50% refund with 24-48 hours notice</p>
+        <p>• Quote valid for 30 days from issue date</p>
+        <p>• Additional flight time billed at $100/hour in 15-minute increments</p>
+        <p>• Travel beyond 25 miles from base location subject to $0.58/mile charge</p>
+      </div>
+    </div>
+
+    <!-- Client Approval and Export Options -->
+    <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-6">
+      <h3 class="font-semibold text-lg text-blue-800 mb-3">Approve & Export Quote</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <form class="space-y-4">
+            <div>
+              <label for="client-name" class="block text-sm font-medium text-gray-700">Your Name</label>
+              <input type="text" id="client-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="client-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+              <input type="email" id="client-email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div class="flex items-start">
+              <input type="checkbox" id="terms-agree" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-1">
+              <label for="terms-agree" class="ml-2 block text-sm text-gray-700">I agree to the terms and conditions</label>
+            </div>
+            <button type="submit" class="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              Approve Quote
+            </button>
+          </form>
+        </div>
+        <div class="flex flex-col space-y-3">
+          <p class="text-sm text-gray-700 mb-2">Export quote in your preferred format:</p>
+          <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 flex items-center justify-center">
+            <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+            </svg>
+            Download as PDF
+          </button>
+          <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 flex items-center justify-center">
+            <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+            </svg>
+            Email Quote
+          </button>
+          <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 flex items-center justify-center">
+            <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" />
+              <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" />
+            </svg>
+            Print Quote
+          </button>
+          <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 flex items-center justify-center">
+            <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+            Save as Template
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-between">
+      <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
+        Previous: Additional Services
+      </button>
+      <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
+        Finalize Quote
+      </button>
+    </div>
+  </section>
+</div>
+
+</element><element id="0e8a8a2a-676b-4a9a-a91e-17798b76b2ab" data-section-id="0e8a8a2a-676b-4a9a-a91e-17798b76b2ab">
+
+
+<div id="root">
+  <section id="saved-quotes" class="page-section bg-white p-4 md:p-6 lg:p-8 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Saved Quotes</h2>
+    
+    <p class="text-gray-600 mb-6">
+      View and manage your previously saved drone service quotes.
+    </p>
+
+    <!-- Filter and Search Bar -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 mb-6 pb-4 border-b border-gray-200">
+      <div class="flex space-x-2">
+        <button class="px-3 py-1 bg-blue-600 text-white rounded">All</button>
+        <button class="px-3 py-1 bg-gray-200 text-gray-700 rounded">Pending</button>
+        <button class="px-3 py-1 bg-gray-200 text-gray-700 rounded">Approved</button>
+        <button class="px-3 py-1 bg-gray-200 text-gray-700 rounded">Completed</button>
+      </div>
+      <div class="w-full md:w-64">
+        <div class="relative">
+          <input 
+            type="text" 
+            placeholder="Search quotes..." 
+            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded"
+          >
+          <div class="absolute left-3 top-2.5">
+            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quotes List -->
+    <div class="overflow-x-auto mb-6">
+      <table class="min-w-full bg-white border border-gray-200 divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quote #</th>
+            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
+            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project Type</th>
+            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+            <th class="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <!-- Quote 1 -->
+          <tr class="hover:bg-gray-50">
+            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-blue-600">#DRN-2023-0342</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">ABC Properties</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Real Estate Photography</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Mar 15, 2023</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">$843.15</td>
+            <td class="px-4 py-4 whitespace-nowrap">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                Approved
+              </span>
+            </td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700 text-center">
+              <div class="flex justify-center space-x-2">
+                <button class="p-1 text-blue-600 hover:text-blue-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+                <button class="p-1 text-yellow-600 hover:text-yellow-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                  </svg>
+                </button>
+                <button class="p-1 text-green-600 hover:text-green-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+          
+          <!-- Quote 2 -->
+          <tr class="hover:bg-gray-50">
+            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-blue-600">#DRN-2023-0341</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">City Parks Department</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Event Coverage</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Mar 10, 2023</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">$1,250.00</td>
+            <td class="px-4 py-4 whitespace-nowrap">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                Pending
+              </span>
+            </td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700 text-center">
+              <div class="flex justify-center space-x-2">
+                <button class="p-1 text-blue-600 hover:text-blue-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+                <button class="p-1 text-yellow-600 hover:text-yellow-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                  </svg>
+                </button>
+                <button class="p-1 text-green-600 hover:text-green-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+          
+          <!-- Quote 3 -->
+          <tr class="hover:bg-gray-50">
+            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-blue-600">#DRN-2023-0340</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">XYZ Construction</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Site Inspection</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Mar 05, 2023</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">$975.50</td>
+            <td class="px-4 py-4 whitespace-nowrap">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                Completed
+              </span>
+            </td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700 text-center">
+              <div class="flex justify-center space-x-2">
+                <button class="p-1 text-blue-600 hover:text-blue-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+                <button class="p-1 text-yellow-600 hover:text-yellow-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                  </svg>
+                </button>
+                <button class="p-1 text-green-600 hover:text-green-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+          
+          <!-- Quote 4 -->
+          <tr class="hover:bg-gray-50">
+            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-blue-600">#DRN-2023-0339</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Lakeside Weddings</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Wedding Photography</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Feb 28, 2023</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">$1,500.00</td>
+            <td class="px-4 py-4 whitespace-nowrap">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                Cancelled
+              </span>
+            </td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700 text-center">
+              <div class="flex justify-center space-x-2">
+                <button class="p-1 text-blue-600 hover:text-blue-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+                <button class="p-1 text-yellow-600 hover:text-yellow-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                  </svg>
+                </button>
+                <button class="p-1 text-green-600 hover:text-green-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+          
+          <!-- Quote 5 -->
+          <tr class="hover:bg-gray-50">
+            <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-blue-600">#DRN-2023-0338</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Green Valley Farm</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Agricultural Mapping</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">Feb 22, 2023</td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">$1,875.25</td>
+            <td class="px-4 py-4 whitespace-nowrap">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                Approved
+              </span>
+            </td>
+            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700 text-center">
+              <div class="flex justify-center space-x-2">
+                <button class="p-1 text-blue-600 hover:text-blue-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+                <button class="p-1 text-yellow-600 hover:text-yellow-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                  </svg>
+                </button>
+                <button class="p-1 text-green-600 hover:text-green-800 rounded">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex items-center justify-between border-t border-gray-200 pt-4">
+      <div class="flex items-center">
+        <p class="text-sm text-gray-700">
+          Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span class="font-medium">12</span> quotes
+        </p>
+      </div>
+      <div class="flex space-x-2">
+        <button class="px-3 py-1 border border-gray-300 rounded-md text-sm bg-white text-gray-500">
+          Previous
+        </button>
+        <button class="px-3 py-1 border border-gray-300 rounded-md text-sm bg-blue-600 text-white">
+          1
+        </button>
+        <button class="px-3 py-1 border border-gray-300 rounded-md text-sm bg-white text-gray-700">
+          2
+        </button>
+        <button class="px-3 py-1 border border-gray-300 rounded-md text-sm bg-white text-gray-700">
+          3
+        </button>
+        <button class="px-3 py-1 border border-gray-300 rounded-md text-sm bg-white text-gray-700">
+          Next
+        </button>
+      </div>
+    </div>
+
+    <!-- Quote Actions -->
+    <div class="mt-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
+      <h3 class="font-semibold text-lg text-gray-700 mb-3">Quick Actions</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center justify-center">
+          <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+          </svg>
+          Create New Quote
+        </button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 flex items-center justify-center">
+          <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M8 5a1 1 0 100 2h5.586l-1.293 1.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L13.586 5H8zM12 15a1 1 0 100-2H6.414l1.293-1.293a1 1 0 10-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L6.414 15H12z" />
+          </svg>
+          Import/Export Quotes
+        </button>
+        <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 flex items-center justify-center">
+          <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+          </svg>
+          Generate Report
+        </button>
+      </div>
+    </div>
+
+    <!-- Quote Templates -->
+    <div class="mt-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
+      <div class="flex justify-between items-center mb-3">
+        <h3 class="font-semibold text-lg text-gray-700">Saved Templates</h3>
+        <button class="text-blue-600 text-sm hover:text-blue-800">View All</button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-3 border border-gray-200 rounded-md bg-white">
+          <h4 class="font-medium text-gray-800">Real Estate Basic</h4>
+          <p class="text-sm text-gray-600">Standard real estate photography package</p>
+          <button class="mt-2 text-sm text-blue-600 hover:text-blue-800">Use Template</button>
+        </div>
+        <div class="p-3 border border-gray-200 rounded-md bg-white">
+          <h4 class="font-medium text-gray-800">Construction Site</h4>
+          <p class="text-sm text-gray-600">Progress tracking for construction projects</p>
+          <button class="mt-2 text-sm text-blue-600 hover:text-blue-800">Use Template</button>
+        </div>
+        <div class="p-3 border border-gray-200 rounded-md bg-white">
+          <h4 class="font-medium text-gray-800">Wedding Premium</h4>
+          <p class="text-sm text-gray-600">Full wedding aerial coverage with editing</p>
+          <button class="mt-2 text-sm text-blue-600 hover:text-blue-800">Use Template</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-between">
+      <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
+        Back to Dashboard
+      </button>
+      <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Create New Quote
+      </button>
+    </div>
+  </section>
+</div>
+
+</element><element id="69ef2c79-493e-4117-918d-6ecb6b33f581" data-section-id="69ef2c79-493e-4117-918d-6ecb6b33f581">
+
+
+<div id="root">
+  <section id="settings" class="page-section bg-white p-4 md:p-6 lg:p-8 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Settings</h2>
+    
+    <p class="text-gray-600 mb-6">
+      Customize your Drone Bid Calculator to match your business needs and pricing structure.
+    </p>
+
+    <!-- Settings Tabs -->
+    <div class="border-b border-gray-200 mb-6">
+      <nav class="flex -mb-px">
+        <button class="py-2 px-4 border-b-2 border-blue-500 text-blue-600 font-medium">
+          General Settings
+        </button>
+        <button class="py-2 px-4 border-b-2 border-transparent text-gray-500 font-medium">
+          Rate Settings
+        </button>
+        <button class="py-2 px-4 border-b-2 border-transparent text-gray-500 font-medium">
+          User Profile
+        </button>
+        <button class="py-2 px-4 border-b-2 border-transparent text-gray-500 font-medium">
+          API Integration
+        </button>
+      </nav>
+    </div>
+
+    <!-- Settings Form -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Left Column: Company Info -->
+      <div class="md:col-span-1">
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+          <h3 class="font-semibold text-lg text-gray-700 mb-3">Company Information</h3>
+          <div class="space-y-4">
+            <div>
+              <label for="company-name" class="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
+              <input 
+                type="text" 
+                id="company-name" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                value="SkyView Drone Services"
+              >
+            </div>
+            <div>
+              <label for="company-logo" class="block text-sm font-medium text-gray-700 mb-1">Company Logo</label>
+              <div class="flex items-center">
+                <div class="w-16 h-16 bg-gray-100 rounded-md flex items-center justify-center">
+                  <svg class="h-10 w-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <button class="ml-3 px-3 py-1 bg-gray-200 text-gray-700 rounded text-sm">
+                  Upload Logo
+                </button>
+              </div>
+            </div>
+            <div>
+              <label for="company-website" class="block text-sm font-medium text-gray-700 mb-1">Website URL</label>
+              <input 
+                type="url" 
+                id="company-website" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                value="https://skyviewdrones.com"
+              >
+            </div>
+            <div>
+              <label for="company-email" class="block text-sm font-medium text-gray-700 mb-1">Contact Email</label>
+              <input 
+                type="email" 
+                id="company-email" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                value="info@skyviewdrones.com"
+              >
+            </div>
+            <div>
+              <label for="company-phone" class="block text-sm font-medium text-gray-700 mb-1">Contact Phone</label>
+              <input 
+                type="tel" 
+                id="company-phone" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                value="(555) 123-4567"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+          <h3 class="font-semibold text-lg text-gray-700 mb-3">Theme Settings</h3>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Primary Color</label>
+              <div class="grid grid-cols-6 gap-2">
+                <button class="w-8 h-8 bg-blue-600 rounded-full ring-2 ring-offset-2 ring-blue-500"></button>
+                <button class="w-8 h-8 bg-green-600 rounded-full"></button>
+                <button class="w-8 h-8 bg-red-600 rounded-full"></button>
+                <button class="w-8 h-8 bg-purple-600 rounded-full"></button>
+                <button class="w-8 h-8 bg-yellow-500 rounded-full"></button>
+                <button class="w-8 h-8 bg-gray-800 rounded-full"></button>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Quote Template</label>
+              <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+                <option>Modern (Default)</option>
+                <option>Professional</option>
+                <option>Minimalist</option>
+                <option>Classic</option>
+              </select>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="include-logo" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+              <label for="include-logo" class="ml-2 block text-sm text-gray-700">Include logo on quotes</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle Column: Rate Settings -->
+      <div class="md:col-span-1">
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+          <h3 class="font-semibold text-lg text-gray-700 mb-3">Base Rate Settings</h3>
+          <div class="space-y-4">
+            <div>
+              <label for="hourly-rate" class="block text-sm font-medium text-gray-700 mb-1">Hourly Rate ($)</label>
+              <input 
+                type="number" 
+                id="hourly-rate" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                value="150"
+              >
+            </div>
+            <div>
+              <label for="setup-fee" class="block text-sm font-medium text-gray-700 mb-1">Setup Fee ($)</label>
+              <input 
+                type="number" 
+                id="setup-fee" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                value="75"
+              >
+            </div>
+            <div>
+              <label for="minimum-charge" class="block text-sm font-medium text-gray-700 mb-1">Minimum Charge ($)</label>
+              <input 
+                type="number" 
+                id="minimum-charge" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                value="300"
+              >
+            </div>
+            <div>
+              <label for="mileage-rate" class="block text-sm font-medium text-gray-700 mb-1">Mileage Rate ($/mile)</label>
+              <input 
+                type="number" 
+                id="mileage-rate" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                value="0.58"
+                step="0.01"
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+          <h3 class="font-semibold text-lg text-gray-700 mb-3">Edit Rate Factors</h3>
+          <div class="space-y-4">
+            <div>
+              <label for="urban-multiplier" class="block text-sm font-medium text-gray-700 mb-1">Urban Location Multiplier</label>
+              <div class="flex items-center">
+                <input 
+                  type="number" 
+                  id="urban-multiplier" 
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  value="1.25"
+                  step="0.05"
+                >
+                <span class="ml-2 text-gray-500">×</span>
+              </div>
+            </div>
+            <div>
+              <label for="rush-multiplier" class="block text-sm font-medium text-gray-700 mb-1">Rush Delivery Multiplier</label>
+              <div class="flex items-center">
+                <input 
+                  type="number" 
+                  id="rush-multiplier" 
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  value="1.5"
+                  step="0.05"
+                >
+                <span class="ml-2 text-gray-500">×</span>
+              </div>
+            </div>
+            <div>
+              <label for="advanced-equipment" class="block text-sm font-medium text-gray-700 mb-1">Advanced Equipment Surcharge</label>
+              <div class="flex items-center">
+                <input 
+                  type="number" 
+                  id="advanced-equipment" 
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  value="150"
+                >
+                <span class="ml-2 text-gray-500">+$</span>
+              </div>
+            </div>
+            <div>
+              <label for="tax-rate" class="block text-sm font-medium text-gray-700 mb-1">Tax Rate (%)</label>
+              <input 
+                type="number" 
+                id="tax-rate" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                value="8.25"
+                step="0.01"
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: App Settings and Integrations -->
+      <div class="md:col-span-1">
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+          <h3 class="font-semibold text-lg text-gray-700 mb-3">Application Settings</h3>
+          <div class="space-y-4">
+            <div>
+              <label for="default-currency" class="block text-sm font-medium text-gray-700 mb-1">Default Currency</label>
+              <select id="default-currency" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+                <option>USD ($)</option>
+                <option>EUR (€)</option>
+                <option>GBP (£)</option>
+                <option>CAD (C$)</option>
+                <option>AUD (A$)</option>
+              </select>
+            </div>
+            <div>
+              <label for="quote-expiry" class="block text-sm font-medium text-gray-700 mb-1">Quote Expiry (days)</label>
+              <input 
+                type="number" 
+                id="quote-expiry" 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                value="30"
+              >
+            </div>
+            <div>
+              <label for="date-format" class="block text-sm font-medium text-gray-700 mb-1">Date Format</label>
+              <select id="date-format" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500">
+                <option>MM/DD/YYYY</option>
+                <option>DD/MM/YYYY</option>
+                <option>YYYY-MM-DD</option>
+              </select>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="auto-save" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+              <label for="auto-save" class="ml-2 block text-sm text-gray-700">Auto-save quotes while editing</label>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="email-notifications" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked>
+              <label for="email-notifications" class="ml-2 block text-sm text-gray-700">Email notifications for quote approvals</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+          <h3 class="font-semibold text-lg text-gray-700 mb-3">Integrations</h3>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <svg class="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.377 7.925H5.623v8.15h12.754v-8.15z"></path>
+                  <path d="M5.002 4.174A2.177 2.177 0 0 0 2.825 6.35V17.65a2.177 2.177 0 0 0 2.177 2.176h13.996a2.177 2.177 0 0 0 2.177-2.176V6.35a2.177 2.177 0 0 0-2.177-2.176H5.002zM18.998 4.9c.8 0 1.45.649 1.45 1.45V17.65c0 .8-.65 1.45-1.45 1.45H5.002c-.8 0-1.45-.65-1.45-1.45V6.35c0-.801.65-1.45 1.45-1.45h13.996z"></path>
+                </svg>
+                <span class="ml-2 text-sm font-medium text-gray-700">QuickBooks</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-xs text-green-600 mr-2">Connected</span>
+                <button class="text-xs text-gray-500">Disconnect</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <svg class="h-6 w-6 text-green-600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.41 16.09l-4.24-4.24 1.41-1.41 2.83 2.83 6.59-6.59 1.41 1.41-8 8z"></path>
+                </svg>
+                <span class="ml-2 text-sm font-medium text-gray-700">Xero</span>
+              </div>
+              <div>
+                <button class="text-xs text-blue-600">Connect</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <svg class="h-6 w-6 text-blue-800" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path>
+                </svg>
+                <span class="ml-2 text-sm font-medium text-gray-700">Hubspot CRM</span>
+              </div>
+              <div>
+                <button class="text-xs text-blue-600">Connect</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <svg class="h-6 w-6 text-blue-500" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10z"></path>
+                </svg>
+                <span class="ml-2 text-sm font-medium text-gray-700">Google Calendar</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-xs text-green-600 mr-2">Connected</span>
+                <button class="text-xs text-gray-500">Disconnect</button>
+              </div>
+            </div>
+            <div class="mt-3">
+              <button class="text-sm text-blue-600">+ Add New Integration</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Export/Import Settings Section -->
+    <div class="mt-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
+      <h3 class="font-semibold text-lg text-gray-700 mb-3">Data Management</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <h4 class="text-sm font-medium text-gray-700 mb-2">Export Settings</h4>
+          <p class="text-xs text-gray-600 mb-2">Download your settings to backup or transfer to another account.</p>
+          <button class="px-3 py-1 bg-blue-600 text-white text-sm rounded">Export Settings</button>
+        </div>
+        <div>
+          <h4 class="text-sm font-medium text-gray-700 mb-2">Import Settings</h4>
+          <p class="text-xs text-gray-600 mb-2">Upload a previously exported settings file.</p>
+          <div class="flex items-center">
+            <button class="px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded">Choose File</button>
+            <span class="ml-2 text-xs text-gray-500">No file chosen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-end space-x-4">
+      <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded">
+        Cancel
+      </button>
+      <button class="px-4 py-2 bg-blue-600 text-white rounded">
+        Save Settings
+      </button>
+    </div>
+  </section>
+</div>
+
+</element><element id="a63cc535-bb13-4e22-a8e2-c63602417b2e" data-section-id="a63cc535-bb13-4e22-a8e2-c63602417b2e">
+
+
+<div id="root">
+  <footer id="footer" class="bg-gray-800 text-white mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Company Info -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Drone Bid Calculator</h3>
+          <p class="text-gray-300 text-sm mb-4">
+            The industry standard tool for drone service professionals to create accurate, competitive quotes.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M16.5 5c1.8 0 3.3.6 4.6 1.9 1.2 1.3 1.9 2.8 1.9 4.6 0 1.8-.6 3.3-1.9 4.6-1.3 1.2-2.8 1.9-4.6 1.9-1.8 0-3.3-.6-4.6-1.9-1.2-1.3-1.9-2.8-1.9-4.6 0-1.8.6-3.3 1.9-4.6C13.2 5.7 14.7 5 16.5 5zm4.4 2.1c-1.2-1.2-2.5-1.8-4.2-1.8s-3.1.6-4.2 1.8c-1.2 1.2-1.8 2.6-1.8 4.2 0 1.7.6 3.1 1.8 4.2 1.2 1.2 2.6 1.8 4.2 1.8 1.7 0 3.1-.6 4.2-1.8 1.2-1.2 1.8-2.6 1.8-4.2.1-1.6-.5-3-1.8-4.2zm-7.2 8.5c-.4.4-.9.6-1.6.6s-1.2-.2-1.6-.6c-.4-.4-.6-.9-.6-1.6s.2-1.2.6-1.6c.4-.4.9-.6 1.6-.6s1.2.2 1.6.6c.4.4.6 1 .6 1.6 0 .6-.2 1.2-.6 1.6zm1-3.7c-.6-.9-1.5-1.3-2.7-1.3-1.1 0-2.1.4-2.8 1.3-.7.9-1.1 1.9-1.1 3.2 0 1.3.4 2.4 1.1 3.2.7.9 1.7 1.3 2.8 1.3 1.1 0 2.1-.4 2.8-1.3.7-.9 1.1-1.9 1.1-3.2 0-1.3-.4-2.4-1.2-3.2zM6.8 21.2h-5V9.2h5v12zM4.3 7.5C3.5 7.5 2.8 7.2 2.2 6.7c-.5-.5-.8-1.2-.8-1.9s.3-1.4.8-1.9C2.8 2.4 3.5 2.1 4.3 2.1s1.6.3 2.1.8c.5.5.8 1.2.8 1.9s-.3 1.4-.8 1.9c-.6.5-1.3.8-2.1.8zM22 21.2h-5v-6.2c0-1.7-.8-2.5-2.3-2.5-1.1 0-1.8.3-2.3 1-.5.7-.7 1.7-.7 2.9v4.8h-5v-12h5v1.8c1-1.3 2.4-2 4.4-2 1.5 0 2.7.5 3.6 1.5.9 1 1.4 2.4 1.4 4.3v6.4z" />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.053 1.805.249 2.227.419.562.217.96.477 1.382.896.419.42.679.819.896 1.381.17.422.366 1.057.419 2.227.058 1.265.07 1.645.07 4.85s-.012 3.584-.07 4.85c-.053 1.17-.249 1.805-.419 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.17-1.057.366-2.227.419-1.265.058-1.645.07-4.85.07-3.204 0-3.584-.012-4.85-.07-1.17-.053-1.805-.249-2.227-.419-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.17-.422-.366-1.057-.419-2.227-.058-1.265-.07-1.645-.07-4.85s.012-3.584.07-4.85c.053-1.17.249-1.805.419-2.227.217-.562.477-.96.896-1.382.42-.419.819-.679 1.381-.896.422-.17 1.057-.366 2.227-.419 1.265-.058 1.645-.07 4.85-.07M12 0C8.741 0 8.332.014 7.052.072 5.775.131 4.902.333 4.14.63c-.789.305-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.902.131 5.775.072 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.059 1.277.261 2.15.558 2.912.305.788.717 1.458 1.384 2.125.667.667 1.336 1.079 2.126 1.384.772.297 1.645.499 2.912.558 1.28.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 1.277-.059 2.15-.261 2.912-.558.788-.305 1.458-.717 2.125-1.384.667-.667 1.079-1.335 1.384-2.126.297-.77.499-1.643.558-2.92.058-1.28.072-1.687.072-4.946 0-3.259-.014-3.668-.072-4.948-.059-1.277-.261-2.15-.558-2.912-.305-.788-.717-1.458-1.384-2.125C21.32 1.347 20.651.935 19.86.63c-.77-.297-1.643-.499-2.92-.558C15.66.014 15.259 0 12 0z"/>
+                <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-gray-300 text-sm">
+            <li><a href="#" class="hover:text-white">Dashboard</a></li>
+            <li><a href="#" class="hover:text-white">Create New Quote</a></li>
+            <li><a href="#" class="hover:text-white">Saved Quotes</a></li>
+            <li><a href="#" class="hover:text-white">Quote Templates</a></li>
+            <li><a href="#" class="hover:text-white">Settings</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Resources</h3>
+          <ul class="space-y-2 text-gray-300 text-sm">
+            <li><a href="#" class="hover:text-white">Pricing Guidelines</a></li>
+            <li><a href="#" class="hover:text-white">Drone Service Directory</a></li>
+            <li><a href="#" class="hover:text-white">FAA Regulations</a></li>
+            <li><a href="#" class="hover:text-white">Equipment Reviews</a></li>
+            <li><a href="#" class="hover:text-white">Industry Standards</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Support -->
+        <div>
+          <h3 class="text-lg font-bold mb-4">Support</h3>
+          <ul class="space-y-2 text-gray-300 text-sm">
+            <li><a href="#" class="hover:text-white">Help Center</a></li>
+            <li><a href="#" class="hover:text-white">Documentation</a></li>
+            <li><a href="#" class="hover:text-white">Community Forum</a></li>
+            <li><a href="#" class="hover:text-white">Report a Bug</a></li>
+            <li><a href="#" class="hover:text-white">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="border-t border-gray-700 pt-8 mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-lg font-bold mb-2">Subscribe to Our Newsletter</h3>
+            <p class="text-gray-300 text-sm mb-4">
+              Get the latest drone industry pricing trends and calculator updates.
+            </p>
+            <div class="flex max-w-md">
+              <input 
+                type="email" 
+                placeholder="Your email address" 
+                class="flex-grow px-4 py-2 rounded-l text-gray-900 focus:outline-none"
+              >
+              <button class="bg-blue-600 px-4 py-2 rounded-r hover:bg-blue-700 focus:outline-none">
+                Subscribe
+              </button>
+            </div>
+          </div>
+          <div class="text-right text-sm text-gray-400">
+            <p>© 2023 Drone Bid Calculator. All rights reserved.</p>
+            <div class="mt-2 space-x-4">
+              <a href="#" class="hover:text-white">Privacy Policy</a>
+              <a href="#" class="hover:text-white">Terms of Service</a>
+              <a href="#" class="hover:text-white">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- App badges -->
+      <div class="border-t border-gray-700 pt-6 mt-6">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <p class="text-sm text-gray-400 mb-4 md:mb-0">
+            Available on mobile devices
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="hover:opacity-80">
+              <img 
+                src="app-store-badge.png"
+                alt="Download on the App Store"
+                width="140"
+                height="42"
+                onerror="this.onerror=null; this.src='https://placehold.co/' + this.width + 'x' + this.height"
+                class="h-10"
+              >
+            </a>
+            <a href="#" class="hover:opacity-80">
+              <img 
+                src="google-play-badge.png"
+                alt="Get it on Google Play"
+                width="140"
+                height="42"
+                onerror="this.onerror=null; this.src='https://placehold.co/' + this.width + 'x' + this.height"
+                class="h-10"
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</element></div>
+      </main>
+
+      <!-- {bodyScripts} -->
+   </body>
+</html>
